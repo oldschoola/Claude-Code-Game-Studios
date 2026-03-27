@@ -10,6 +10,9 @@ you'll lose validation features.
 | ---- | ---- | ---- |
 | **Git** | Version control, branch management | [git-scm.com](https://git-scm.com/) |
 | **Claude Code** | AI agent CLI | `npm install -g @anthropic-ai/claude-code` |
+| **Visual Studio 2022+** | C# development, s&box editor support | [visualstudio.microsoft.com](https://visualstudio.microsoft.com/) |
+| **.NET 10 SDK** | s&box runtime, build tools | [dotnet.microsoft.com](https://dotnet.microsoft.com/) |
+| **s&box** | Game engine (via Steam) | Available on Steam — most users install via Steam client |
 
 ## Recommended
 
@@ -60,6 +63,7 @@ Run these commands to check prerequisites:
 ```bash
 git --version          # Should show git version
 bash --version         # Should show bash version
+dotnet --version       # Should show .NET 10 SDK version
 jq --version           # Should show jq version (optional)
 python3 --version      # Should show python version (optional)
 ```

@@ -1,18 +1,19 @@
 # Claude Code Game Studios -- Game Studio Agent Architecture
 
-Indie game development managed through 48 coordinated Claude Code subagents.
+Indie game development on s&box, managed through coordinated Claude Code subagents.
 Each agent owns a specific domain, enforcing separation of concerns and quality.
 
 ## Technology Stack
 
-- **Engine**: [CHOOSE: Godot 4 / Unity / Unreal Engine 5]
-- **Language**: [CHOOSE: GDScript / C# / C++ / Blueprint]
+- **Engine**: s&box (Source 2 / .NET 10)
+- **Language**: C#
 - **Version Control**: Git with trunk-based development
-- **Build System**: [SPECIFY after choosing engine]
-- **Asset Pipeline**: [SPECIFY after choosing engine]
+- **Build System**: `.sbproj` addon projects
+- **Asset Pipeline**: s&box content system (models, materials, sounds via editor)
+- **UI Framework**: Razor (PanelComponent with HTML/CSS)
 
-> **Note**: Engine-specialist agents exist for Godot, Unity, and Unreal with
-> dedicated sub-specialists. Use the set matching your engine.
+> **Note**: s&box-specialist agents exist for core engine, networking, Razor UI,
+> and tooling. Use the specialist matching your current task.
 
 ## Project Structure
 
@@ -20,7 +21,7 @@ Each agent owns a specific domain, enforcing separation of concerns and quality.
 
 ## Engine Version Reference
 
-@docs/engine-reference/godot/VERSION.md
+@docs/engine-reference/sbox/VERSION.md
 
 ## Technical Preferences
 
@@ -41,9 +42,6 @@ Every task follows: **Question -> Options -> Decision -> Draft -> Approval**
 - No commits without user instruction
 
 See `docs/COLLABORATIVE-DESIGN-PRINCIPLE.md` for full protocol and examples.
-
-> **First session?** If the project has no engine configured and no game concept,
-> run `/start` to begin the guided onboarding flow.
 
 ## Coding Standards
 

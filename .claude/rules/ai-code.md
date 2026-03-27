@@ -1,6 +1,6 @@
 ---
 paths:
-  - "src/ai/**"
+  - "Code/AI/**"
 ---
 
 # AI Code Rules
@@ -13,3 +13,5 @@ paths:
 - Group AI must support formation, flanking, and role assignment from data
 - All AI state machines must log transitions for debugging
 - Never trust AI input from the network without validation
+- Use s&box Component pattern for AI behaviors — extend `Component`
+- Use `[Sync]` for AI state that clients need to observe (animation states, target indicators)

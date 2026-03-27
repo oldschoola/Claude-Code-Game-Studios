@@ -30,23 +30,11 @@
     live-ops-designer       -- Seasons, events, battle passes, retention, live economy
     community-manager       -- Patch notes, player feedback, crisis comms
 
-  Engine Specialists (use the SET matching your engine):
-    unreal-specialist  -- UE5 lead: Blueprint/C++, GAS overview, UE subsystems
-      ue-gas-specialist         -- GAS: abilities, effects, attributes, tags, prediction
-      ue-blueprint-specialist   -- Blueprint: BP/C++ boundary, graph standards, optimization
-      ue-replication-specialist -- Networking: replication, RPCs, prediction, bandwidth
-      ue-umg-specialist         -- UI: UMG, CommonUI, widget hierarchy, data binding
-
-    unity-specialist   -- Unity lead: MonoBehaviour/DOTS, Addressables, URP/HDRP
-      unity-dots-specialist         -- DOTS/ECS: Jobs, Burst, hybrid renderer
-      unity-shader-specialist       -- Shaders: Shader Graph, VFX Graph, SRP customization
-      unity-addressables-specialist -- Assets: async loading, bundles, memory, CDN
-      unity-ui-specialist           -- UI: UI Toolkit, UGUI, UXML/USS, data binding
-
-    godot-specialist   -- Godot 4 lead: GDScript, node/scene, signals, resources
-      godot-gdscript-specialist    -- GDScript: static typing, patterns, signals, performance
-      godot-shader-specialist      -- Shaders: Godot shading language, visual shaders, VFX
-      godot-gdextension-specialist -- Native: C++/Rust bindings, GDExtension, build systems
+  Engine Specialists (s&box):
+    sbox-specialist             -- s&box lead: Component/GameObject, Scene system, engine APIs, optimization
+      sbox-networking-specialist    -- Networking: [Sync] replication, [Broadcast] RPCs, IsProxy, Network Storage v3
+      sbox-razor-specialist         -- UI: PanelComponent, ScreenPanel, WorldPanel, CSS compatibility, Razor patterns
+      sbox-tools-specialist         -- Tooling: Editor extensions, .sbproj, asset pipeline, content mounting
 ```
 
 ### Legend

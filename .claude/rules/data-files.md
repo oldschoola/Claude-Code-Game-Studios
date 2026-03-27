@@ -1,6 +1,6 @@
 ---
 paths:
-  - "assets/data/**"
+  - "Assets/Data/**"
 ---
 
 # Data File Rules

@@ -4,12 +4,15 @@ This directory contains curated, version-pinned documentation snapshots for the
 game engine(s) used in this project. These files exist because **LLM knowledge
 has a cutoff date** and game engines update frequently.
 
+## Active Engine
+
+**s&box** (Source 2 + .NET 10) — see `sbox/` directory.
+
 ## Why This Exists
 
 Claude's training data has a knowledge cutoff (currently May 2025). Game engines
-like Godot, Unity, and Unreal ship updates that introduce breaking API changes,
-new features, and deprecated patterns. Without these reference files, agents will
-suggest outdated code.
+ship updates that introduce breaking API changes, new features, and deprecated
+patterns. Without these reference files, agents will suggest outdated code.
 
 ## Structure
 
@@ -22,9 +25,11 @@ Each engine gets its own directory:
 ├── deprecated-apis.md      # "Don't use X → Use Y" lookup tables
 ├── current-best-practices.md  # New practices not in model training data
 └── modules/                # Per-subsystem quick references (~150 lines max each)
-    ├── rendering.md
+    ├── scenes.md
+    ├── networking.md
+    ├── ui.md
     ├── physics.md
-    └── ...
+    └── rendering.md
 ```
 
 ## How Agents Use These Files
@@ -42,7 +47,6 @@ Engine-specialist agents are instructed to:
 
 - After upgrading the engine version
 - When the LLM model is updated (new knowledge cutoff)
-- After running `/refresh-docs` (if available)
 - When you discover an API the model gets wrong
 
 ### How to Update

@@ -2,14 +2,13 @@
 
 ## What Is This?
 
-This is a complete Claude Code agent architecture for game development. It
-organizes 48 specialized AI agents into a studio hierarchy that mirrors
-real game development teams, with defined responsibilities, delegation
-rules, and coordination protocols. It includes engine-specialist agents
-for Godot, Unity, and Unreal — each with dedicated sub-specialists for
-major engine subsystems. All design agents and templates are grounded in
-established game design theory (MDA Framework, Self-Determination Theory,
-Flow State, Bartle Player Types). Use whichever engine set matches your project.
+This is a complete Claude Code agent architecture for game development on s&box
+(Source 2 + .NET 10, C#, Razor UI). It organizes specialized AI agents into a
+studio hierarchy that mirrors real game development teams, with defined
+responsibilities, delegation rules, and coordination protocols. It includes
+s&box-specialist agents for core engine, networking, Razor UI, and tooling. All
+design agents and templates are grounded in established game design theory (MDA
+Framework, Self-Determination Theory, Flow State, Bartle Player Types).
 
 ## How to Use
 
@@ -53,20 +52,10 @@ Ask yourself: "What department would handle this in a real studio?"
 | Test a mechanic idea quickly | `prototyper` |
 | Review code for security issues | `security-engineer` |
 | Check accessibility compliance | `accessibility-specialist` |
-| Get Unreal Engine advice | `unreal-specialist` |
-| Get Unity advice | `unity-specialist` |
-| Get Godot advice | `godot-specialist` |
-| Design GAS abilities/effects | `ue-gas-specialist` |
-| Define BP/C++ boundaries | `ue-blueprint-specialist` |
-| Implement UE replication | `ue-replication-specialist` |
-| Build UMG/CommonUI widgets | `ue-umg-specialist` |
-| Design DOTS/ECS architecture | `unity-dots-specialist` |
-| Write Unity shaders/VFX | `unity-shader-specialist` |
-| Manage Addressable assets | `unity-addressables-specialist` |
-| Build UI Toolkit/UGUI screens | `unity-ui-specialist` |
-| Write idiomatic GDScript | `godot-gdscript-specialist` |
-| Create Godot shaders | `godot-shader-specialist` |
-| Build GDExtension modules | `godot-gdextension-specialist` |
+| Get s&box engine advice | `sbox-specialist` |
+| s&box networking patterns | `sbox-networking-specialist` |
+| s&box Razor UI / CSS | `sbox-razor-specialist` |
+| s&box editor / tools | `sbox-tools-specialist` |
 | Plan live events and seasons | `live-ops-designer` |
 | Write patch notes for players | `community-manager` |
 | Brainstorm a new game idea | Use `/brainstorm` skill |
@@ -153,64 +142,44 @@ Templates are in `.claude/docs/templates/`:
 
 ## First Steps for a New Project
 
-**Don't know where to begin?** Run `/start`. It asks where you are and routes
-you to the right workflow. No assumptions about your game, engine, or experience level.
-
-If you already know what you need, jump directly to the relevant path:
+The engine is pre-configured as s&box (Source 2 + .NET 10). If you already
+know what you want to build, jump directly to the relevant path:
 
 ### Path A: "I have no idea what to build"
 
-1. **Run `/start`** (or `/brainstorm open`) — guided creative exploration:
+1. **Run `/brainstorm open`** — guided creative exploration:
    what excites you, what you've played, your constraints
    - Generates 3 concepts, helps you pick one, defines core loop and pillars
-   - Produces a game concept document and recommends an engine
-2. **Set up the engine** — Run `/setup-engine` (uses the brainstorm recommendation)
-   - Configures CLAUDE.md, detects knowledge gaps, populates reference docs
-   - Creates `.claude/docs/technical-preferences.md` with naming conventions,
-     performance budgets, and engine-specific defaults
-   - If the engine version is newer than the LLM's training data, it fetches
-     current docs from the web so agents suggest correct APIs
-3. **Validate the concept** — Run `/design-review design/gdd/game-concept.md`
-4. **Decompose into systems** — Run `/map-systems` to map all systems and dependencies
-5. **Design each system** — Run `/design-system [system-name]` (or `/map-systems next`)
+   - Produces a game concept document
+2. **Validate the concept** — Run `/design-review design/gdd/game-concept.md`
+3. **Decompose into systems** — Run `/map-systems` to map all systems and dependencies
+4. **Design each system** — Run `/design-system [system-name]` (or `/map-systems next`)
    to write GDDs in dependency order
-6. **Test the core loop** — Run `/prototype [core-mechanic]`
-7. **Playtest it** — Run `/playtest-report` to validate the hypothesis
-8. **Plan the first sprint** — Run `/sprint-plan new`
-9. Start building
-
-### Path B: "I know what I want to build"
-
-If you already have a game concept and engine choice:
-
-1. **Set up the engine** — Run `/setup-engine [engine] [version]`
-   (e.g., `/setup-engine godot 4.6`) — also creates technical preferences
-2. **Write the Game Pillars** — delegate to `creative-director`
-3. **Decompose into systems** — Run `/map-systems` to enumerate systems and dependencies
-4. **Design each system** — Run `/design-system [system-name]` for GDDs in dependency order
-5. **Create the initial ADR** — Run `/architecture-decision`
-6. **Create the first milestone** in `production/milestones/`
+5. **Test the core loop** — Run `/prototype [core-mechanic]`
+6. **Playtest it** — Run `/playtest-report` to validate the hypothesis
 7. **Plan the first sprint** — Run `/sprint-plan new`
 8. Start building
 
-### Path C: "I know the game but not the engine"
+### Path B: "I know what I want to build"
 
-If you have a concept but don't know which engine fits:
+If you already have a game concept:
 
-1. **Run `/setup-engine`** with no arguments — it will ask about your game's
-   needs (2D/3D, platforms, team size, language preferences) and recommend
-   an engine based on your answers
-2. Follow Path B from step 2 onward
+1. **Write the Game Pillars** — delegate to `creative-director`
+2. **Decompose into systems** — Run `/map-systems` to enumerate systems and dependencies
+3. **Design each system** — Run `/design-system [system-name]` for GDDs in dependency order
+4. **Create the initial ADR** — Run `/architecture-decision`
+5. **Create the first milestone** in `production/milestones/`
+6. **Plan the first sprint** — Run `/sprint-plan new`
+7. Start building
 
-### Path D: "I have an existing project"
+### Path C: "I have an existing project"
 
 If you have design docs, prototypes, or code already:
 
-1. **Run `/start`** (or `/project-stage-detect`) — analyzes what exists,
+1. **Run `/project-stage-detect`** — analyzes what exists,
    identifies gaps, and recommends next steps
-2. **Configure engine if needed** — Run `/setup-engine` if not yet configured
-3. **Validate phase readiness** — Run `/gate-check` to see where you stand
-4. **Plan the next sprint** — Run `/sprint-plan new`
+2. **Validate phase readiness** — Run `/gate-check` to see where you stand
+3. **Plan the next sprint** — Run `/sprint-plan new`
 
 ## File Structure Reference
 
@@ -218,10 +187,10 @@ If you have design docs, prototypes, or code already:
 CLAUDE.md                          -- Master config (read this first, ~60 lines)
 .claude/
   settings.json                    -- Claude Code hooks and project settings
-  agents/                          -- 48 agent definitions (YAML frontmatter)
-  skills/                          -- 37 slash command definitions (YAML frontmatter)
+  agents/                          -- Agent definitions (YAML frontmatter), including s&box specialists
+  skills/                          -- Slash command definitions (YAML frontmatter)
   hooks/                           -- 8 hook scripts (.sh) wired by settings.json
-  rules/                           -- 11 path-specific rule files
+  rules/                           -- Path-specific rule files (Code/, Editor/, Libraries/, Assets/)
   docs/
     quick-start.md                 -- This file
     technical-preferences.md       -- Project-specific standards (populated by /setup-engine)
