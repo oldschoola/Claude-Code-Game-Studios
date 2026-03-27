@@ -66,3 +66,4 @@ domain lead) should delegate to specialists.
 | `sbox-networking-specialist` | s&box Networking | Sonnet | `[Sync]` replication, `[Broadcast]` RPCs, IsProxy authority, Network Storage v3 |
 | `sbox-razor-specialist` | s&box Razor UI | Sonnet | PanelComponent, ScreenPanel, WorldPanel, CSS compatibility, HTML/CSS patterns |
 | `sbox-tools-specialist` | s&box Tooling | Sonnet | Editor extensions, .sbproj, asset pipeline, content mounting, build system |
+| `lua-conversion-specialist` | GMod Lua conversion | Sonnet | Convert GMod Lua gamemodes to s&box C#, translate Lua patterns, API mapping |

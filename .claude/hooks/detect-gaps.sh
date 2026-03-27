@@ -12,6 +12,44 @@ echo "=== Checking for Documentation Gaps ==="
 # --- Check 0: Fresh project detection (suggests /start) ---
 FRESH_PROJECT=true
 
+# Check for GMod Lua source that could be converted to s&box
+GMOD_LUA_DIR=""
+for candidate in "gamemode" "PERP3_old" "garrysmod"; do
+  if [ -d "$candidate/gamemode" ] && [ -f "$candidate/gamemode/init.lua" ]; then
+    GMOD_LUA_DIR="$candidate"
+    break
+  fi
+done
+
+if [ -n "$GMOD_LUA_DIR" ]; then
+  LUA_FILES=$(find "$GMOD_LUA_DIR/gamemode" -name "*.lua" 2>/dev/null | wc -l)
+  LUA_FILES=$(echo "$LUA_FILES" | tr -d ' ')
+
+  # Check if conversion has been started (any .cs files in Code/)
+  CONVERSION_STARTED=false
+  if [ -d "Code" ]; then
+    CS_FILES=$(find Code -name "*.cs" 2>/dev/null | wc -l)
+    CS_FILES=$(echo "$CS_FILES" | tr -d ' ')
+    if [ "$CS_FILES" -gt 0 ]; then
+      CONVERSION_STARTED=true
+    fi
+  fi
+
+  echo ""
+  echo "🎮 GMOD SOURCE DETECTED: $GMOD_LUA_DIR/ ($LUA_FILES Lua files)"
+  if [ "$CONVERSION_STARTED" = false ]; then
+    echo "   No s&box C# code found in Code/ — conversion may not have started."
+    echo "   Run: /convert-gamemode analyze"
+  else
+    echo "   s&box C# conversion appears to be in progress."
+    echo "   Run: /convert-gamemode status"
+  fi
+  echo ""
+
+  # Don't suggest /start if we have GMod source — suggest conversion instead
+  FRESH_PROJECT=false
+fi
+
 # Check if engine is configured
 if [ -f ".claude/docs/technical-preferences.md" ]; then
   ENGINE_LINE=$(grep -E "^\- \*\*Engine\*\*:" .claude/docs/technical-preferences.md 2>/dev/null)

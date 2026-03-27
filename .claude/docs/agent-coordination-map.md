@@ -35,6 +35,9 @@
       sbox-networking-specialist    -- Networking: [Sync] replication, [Broadcast] RPCs, IsProxy, Network Storage v3
       sbox-razor-specialist         -- UI: PanelComponent, ScreenPanel, WorldPanel, CSS compatibility, Razor patterns
       sbox-tools-specialist         -- Tooling: Editor extensions, .sbproj, asset pipeline, content mounting
+
+  Conversion Specialists:
+    lua-conversion-specialist     -- GMod Lua: hook.Add, umsg/net, vgui, ents, SQL -> s&box C# equivalents
 ```
 
 ### Legend

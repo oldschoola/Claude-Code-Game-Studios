@@ -39,3 +39,4 @@
 | `/map-systems` | Decompose game concept into systems, map dependencies, prioritize design order, guide per-system GDDs |
 | `/design-system` | Guided, section-by-section GDD authoring for a single game system with cross-referencing and incremental writing |
 | `/setup-engine` | Configure engine + version (s&box is pre-configured) |
+| `/convert-gamemode` | Analyze and convert a GMod Lua gamemode to s&box C# (7-phase workflow) |

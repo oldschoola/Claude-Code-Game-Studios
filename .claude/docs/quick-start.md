@@ -55,6 +55,8 @@ Ask yourself: "What department would handle this in a real studio?"
 | Get s&box engine advice | `sbox-specialist` |
 | s&box networking patterns | `sbox-networking-specialist` |
 | s&box Razor UI / CSS | `sbox-razor-specialist` |
+| Convert a GMod Lua gamemode | `/convert-gamemode` skill |
+| Translate GMod Lua to s&box C# | `lua-conversion-specialist` |
 | s&box editor / tools | `sbox-tools-specialist` |
 | Plan live events and seasons | `live-ops-designer` |
 | Write patch notes for players | `community-manager` |
